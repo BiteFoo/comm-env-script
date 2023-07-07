@@ -11,7 +11,7 @@ cd ..
 # PATH=~/.bin/repo
 
 # download kernel
-rm -rf android10-kernel
+sudo rm -rf android10-kernel
 echo "creating dir "
 mkdir android10-kernel
 cd android10-kernel
@@ -24,8 +24,8 @@ echo "sync kernel code "
 # android 12 kernel
 # repo  init --depth 1 -u https://android.googlesource.com/kernel/manifest -b android-msm-crosshatch-4.9-android12
 # android 10 kernel 
-repo  init --depth 1 -u https://android.googlesource.com/kernel/manifest -b android-msm-crosshatch-4.9-android10
+repo  init --depth 1 -u https://android.googlesource.com/kernel/manifest -b common/deprecated/android-4.9 #android-msm-crosshatch-4.9-android10-qpr1 #android-msm-crosshatch-4.9-android10
 repo  sync -qcj20
 
 # 编译 注意这里的build/build.config 被修改了
-BUILD_CONFIG=build/build.config SKIP_DECONFIG=0 SKIP_MRPROPER=0 ARCH=arm64 ./build/build.sh -j20
+# BUILD_CONFIG=build/build.config SKIP_DECONFIG=0 SKIP_MRPROPER=0 ARCH=arm64 ./build/build.sh -j20
